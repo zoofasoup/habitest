@@ -60,11 +60,32 @@
     <li><a href="#for-who">Untuk Siapa?</a></li>
     <li><a href="#product">Produk</a></li>
     <li><a href="#ingredients">Komposisi</a></li>
-        <li><a href="#testi">Testimoni</a></li>
+    <li><a href="#testi">Testimoni</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a href="#buy" class="btn btn-md lime">Beli Sekarang</a>
+  <div class="nav-right">
+    <a href="#buy" class="btn btn-md lime nav-btn">Beli Sekarang</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </nav>
+
+<!-- Mobile Overlay Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" id="closeMenu">&times;</button>
+  <ul class="mobile-links">
+    <li><a href="#for-who" class="mobile-link">Untuk Siapa?</a></li>
+    <li><a href="#product" class="mobile-link">Produk</a></li>
+    <li><a href="#ingredients" class="mobile-link">Komposisi</a></li>
+    <li><a href="#testi" class="mobile-link">Testimoni</a></li>
+    <li><a href="#faq" class="mobile-link">FAQ</a></li>
+    <li><a href="#buy" class="btn btn-lg lime mobile-link" style="margin-top:20px;">Beli Sekarang</a></li>
+  </ul>
+</div>
+
 
 <!-- HERO -->
 <!-- HERO -->
@@ -317,5 +338,34 @@
 <script src="js/main.js" defer></script>
 
 
+
+<!-- Mobile Menu Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger');
+  const closeMenu = document.getElementById('closeMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  if(hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden'; // prevent scrolling behind
+    });
+    
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+    });
+  }
+});
+</script>
 </body>
 </html>
