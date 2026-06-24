@@ -59,7 +59,7 @@ nav.stuck{background:rgba(255,255,255,0.95);box-shadow:0 10px 30px rgba(0,0,0,.1
 .nav-links a:hover{opacity:1}
 
 /* ── HERO ── */
-#hero{min-height:100vh;background:linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.6) 100%), url('../images/hero-mountain.webp') center/cover no-repeat;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 20px 40px;position:relative;overflow:hidden}
+#hero{min-height:80vh;background:linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.6) 100%), url('../images/hero-mountain.webp') center/cover no-repeat;background-attachment:fixed;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 20px 40px;position:relative;overflow:hidden}
 .hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;max-width:800px;height:100%;justify-content:center}
 
 
@@ -69,7 +69,10 @@ nav.stuck{background:rgba(255,255,255,0.95);box-shadow:0 10px 30px rgba(0,0,0,.1
 .hero-h1 em{font-style:normal;color:#AFFF3B;text-shadow:0 2px 8px rgba(0,0,0,0.8)}
 .hero-p{font-size:18px;line-height:1.6;color:rgba(255,255,255,.9);max-width:600px;margin:0 auto 24px;font-weight:400;text-shadow:0 1px 4px rgba(0,0,0,0.5)}
 .hero-cta{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:0px;margin-bottom:40px;position:relative;z-index:4}
-.hero-stats{display:flex;justify-content:center;gap:40px;padding:20px 40px;background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);border-radius:100px;border:1px solid rgba(255,255,255,0.1);margin-top:20px}
+.hero-stats{display:flex;justify-content:center;gap:40px;padding:20px 40px;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:100px;border:1px solid rgba(255,255,255,1);margin-top:20px;box-shadow:0 10px 40px rgba(0,0,0,0.15)}
+.hero-stats .sn { color: #004d40; font-weight: 800; font-size: 24px; }
+.hero-stats .sl { color: #555; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
 .sn{font-size:24px;font-weight:800;color:#fff;line-height:1}
 .sl{font-size:12px;color:rgba(255,255,255,0.8);margin-top:4px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase}
 
@@ -95,7 +98,7 @@ nav.stuck{background:rgba(255,255,255,0.95);box-shadow:0 10px 30px rgba(0,0,0,.1
 .ti-ico{font-size:36px}
 .ti-h{font-size:20px;font-weight:700;color:#fff;letter-spacing:0.5px}
 .ti-s{font-size:14px;color:rgba(255,255,255,.85)}
-.ti-div{width:1px;height:40px;background:rgba(255,255,255,.3)}
+.ti-div{width:1px;height:40px;background:rgba(0,0,0,.1)}
 
 /* ── FOR WHO ── */
 #for-who{background:var(--white)}
@@ -409,6 +412,7 @@ footer{background:var(--dark);padding:60px 80px 36px}
   #hero {
     padding: 120px 20px 0px;
     background-position: center bottom;
+    background-attachment: fixed;
   }
   .hero-h1 {
     font-size: 40px;
@@ -434,11 +438,19 @@ footer{background:var(--dark);padding:60px 80px 36px}
     justify-content: center;
   }
   .hero-stats {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 16px;
     padding: 24px;
-    border-radius: 24px; /* Fixed ugly pill shape */
-    background: rgba(0,0,0,0.6);
+    border-radius: 32px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  .hero-stats > div {
+    flex: 1 1 40%;
   }
   .hero-stats > div {
     width: 100%;
@@ -483,4 +495,41 @@ footer{background:var(--dark);padding:60px 80px 36px}
 @media (max-width: 900px) {
   .nav-links, .nav-btn { display: none; }
   .hamburger { display: flex; }
+}
+
+#trust-parallax {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('../images/hero_nature_bg.png') center/cover no-repeat;
+  background-attachment: fixed;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#trust {
+  width: 100%;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,1);
+  border-bottom: 1px solid rgba(255,255,255,1);
+  padding: 32px 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.glass-card {
+  /* remove constraints since #trust handles the glass now */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+@media (max-width: 900px) {
+  .tr.glass-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ti-div {
+    width: 100%;
+    height: 1px;
+    margin: 8px 0;
+  }
 }
