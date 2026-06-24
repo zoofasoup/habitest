@@ -249,3 +249,25 @@ footer{background:var(--dark);padding:60px 80px 36px}
   .fb{flex-direction:column;gap:14px}
   .bottle-img{width:200px}
 }
+
+/* ── WA FLOAT ── */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #25D366;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+.wa-float:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  background-color: #1ebe56;
+}
