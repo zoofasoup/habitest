@@ -360,7 +360,7 @@ footer{background:var(--dark);padding:60px 80px 36px}
   bottom: 0;
   z-index: 3;
   pointer-events: none;
-  width: 250px;
+  width: 160px;
   height: auto;
   animation: floatUpDn 6s ease-in-out infinite;
 }
@@ -388,7 +388,7 @@ footer{background:var(--dark);padding:60px 80px 36px}
 
 @media (max-width: 1000px) {
   .bottle-left, .bottle-right {
-    width: 180px;
+    width: 140px;
   }
 }
 @media (max-width: 768px) {
@@ -400,6 +400,50 @@ footer{background:var(--dark);padding:60px 80px 36px}
     right: auto;
     bottom: auto;
     margin-top: 40px;
-    width: 220px;
+    width: 140px;
+  }
+}
+
+/* MOBILE HERO OPTIMIZATIONS */
+@media (max-width: 768px) {
+  #hero {
+    padding: 100px 16px 40px;
+    background-position: center bottom;
+  }
+  .hero-h1 {
+    font-size: 36px;
+    letter-spacing: -0.5px;
+  }
+  .hero-p {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .hero-glass {
+    flex-direction: column;
+    padding: 24px 16px;
+  }
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .hero-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+  }
+  .hero-stats > div {
+    flex: 1 1 40%;
+    text-align: center;
+  }
+  .hero-tag {
+    font-size: 10px;
+    padding: 6px 12px;
   }
 }
