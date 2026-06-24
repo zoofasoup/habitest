@@ -271,3 +271,79 @@ footer{background:var(--dark);padding:60px 80px 36px}
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   background-color: #1ebe56;
 }
+/* ── FLIP CARDS ── */
+.f-card {
+  perspective: 1000px;
+  cursor: pointer;
+  height: 400px;
+}
+.f-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.f-card:hover .f-inner {
+  transform: rotateY(180deg);
+}
+.f-front,
+.f-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.f-front {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+.f-front img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.f-front h3 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--lime);
+  margin-bottom: 6px;
+}
+.f-front .f-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.f-back {
+  background: var(--lime-dk);
+  color: white;
+  transform: rotateY(180deg);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.f-back p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: var(--lime);
+}
+.f-back ul {
+  font-size: 16px;
+  line-height: 1.6;
+  padding-left: 20px;
+  color: rgba(255,255,255,0.9);
+}
+.f-back li {
+  margin-bottom: 12px;
+}
