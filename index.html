@@ -69,15 +69,13 @@
 
 <!-- HERO -->
 <!-- HERO -->
-<section id="hero">
-  <div class="hero-content">
+<section id="hero" class="parallax-hero">
+  <div class="parallax-bg" data-speed="0.2"></div>
+  
+  <div class="hero-content parallax-mid" data-speed="0.5">
     <div class="hero-tag">100% Herbal Alam · Halal · BPOM</div>
     <h1 class="hero-h1">Tetes Herbal<br>untuk <em>Seluruh Keluarga</em></h1>
     <p class="hero-p">Suplemen cair berbasis minyak habbatussauda dan zaitun extra virgin , membantu meredakan batuk dan menjaga daya tahan tubuh dari dalam.</p>
-    
-    <div class="bottle-float-container">
-  <img src="images/extracted_0.webp" alt="Habi Herbal Alam 30ml" class="bottle-img">
-    </div>
     
     <div class="hero-glass">
       <div class="hero-cta">
@@ -90,6 +88,10 @@
         <div><div class="sn">BPOM</div><div class="sl">Terdaftar Resmi</div></div>
       </div>
     </div>
+  </div>
+  
+  <div class="bottle-float-container parallax-front" data-speed="1.2">
+    <img src="images/extracted_0.webp" alt="Habi Herbal Alam 30ml" class="bottle-img">
   </div>
 </section>
 
@@ -335,5 +337,42 @@
 </a>
 <link rel="stylesheet" href="css/styles.css">
 <script src="js/main.js" defer></script>
+
+<!-- Parallax Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const parallaxLayers = document.querySelectorAll('.parallax-bg, .parallax-mid, .parallax-front');
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        // Only do parallax on desktop/tablet to avoid weird mobile jumping
+        if (window.innerWidth > 768) {
+          const scrolled = window.pageYOffset;
+          parallaxLayers.forEach(layer => {
+            const speed = parseFloat(layer.getAttribute('data-speed')) || 0.5;
+            // Negative/Positive decides direction. Foreground moves up faster.
+            // Bg moves down slowly relative to scroll
+            let yPos = 0;
+            if (layer.classList.contains('parallax-bg')) {
+              yPos = scrolled * speed;
+            } else if (layer.classList.contains('parallax-front')) {
+              // moves UP faster than scroll
+              yPos = -(scrolled * speed * 0.3);
+            } else {
+              // Mid layer moves UP slightly
+              yPos = -(scrolled * speed * 0.2);
+            }
+            layer.style.transform = `translate3d(0px, ${yPos}px, 0px)`;
+          });
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+});
+</script>
 </body>
 </html>
