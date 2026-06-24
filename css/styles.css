@@ -407,25 +407,26 @@ footer{background:var(--dark);padding:60px 80px 36px}
 /* MOBILE HERO OPTIMIZATIONS */
 @media (max-width: 768px) {
   #hero {
-    padding: 100px 16px 40px;
+    padding: 120px 20px 0px;
     background-position: center bottom;
   }
   .hero-h1 {
-    font-size: 36px;
-    letter-spacing: -0.5px;
+    font-size: 40px;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
   }
   .hero-p {
-    font-size: 16px;
-    margin-bottom: 24px;
+    font-size: 15px;
+    margin-bottom: 32px;
   }
   .hero-glass {
-    flex-direction: column;
-    padding: 24px 16px;
+    width: 100%;
   }
   .hero-cta {
     flex-direction: column;
     width: 100%;
-    gap: 12px;
+    gap: 16px;
+    margin-bottom: 24px;
   }
   .hero-cta .btn {
     width: 100%;
@@ -433,17 +434,22 @@ footer{background:var(--dark);padding:60px 80px 36px}
     justify-content: center;
   }
   .hero-stats {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 16px;
-    padding: 16px;
+    padding: 24px;
+    border-radius: 24px; /* Fixed ugly pill shape */
+    background: rgba(0,0,0,0.6);
   }
   .hero-stats > div {
-    flex: 1 1 40%;
+    width: 100%;
     text-align: center;
   }
-  .hero-tag {
-    font-size: 10px;
-    padding: 6px 12px;
+  .bottle-right {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 20px;
+    width: 160px;
+    animation: none; /* Disable float on mobile to prevent clipping */
   }
 }
