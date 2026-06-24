@@ -55,7 +55,7 @@
 <body>
 
 <nav id="nav">
-  <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;"><img src="images/logo.webp" alt="Habi Logo" style="height:40px; width:auto;" class="logo-img"></a>
+  <a href="#" class="nav-logo-bg" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;"><img src="images/logo.webp" alt="Habi Logo" style="height:32px; width:auto;" class="logo-img"></a>
   <ul class="nav-links">
     <li><a href="#for-who">Untuk Siapa?</a></li>
     <li><a href="#product">Produk</a></li>
@@ -341,18 +341,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if(hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
       mobileMenu.classList.add('active');
-      document.body.style.overflow = 'hidden'; // prevent scrolling behind
+      document.body.classList.add('no-scroll'); // prevent scrolling behind
     });
     
     closeMenu.addEventListener('click', () => {
       mobileMenu.classList.remove('active');
-      document.body.style.overflow = 'auto';
+      document.body.classList.remove('no-scroll');
     });
 
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        document.body.classList.remove('no-scroll');
       });
     });
   }
